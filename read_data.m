@@ -1,5 +1,7 @@
 function [xb,yb,m,mp1,Uinf,alpha] = read_data()
-  % specify coordinates (xb,yb) of boundary points on airfoil surface. the
+  %% this function is to read data from given airfoil coordinate data and also read a user-based input for freestream velocity and angle of attack
+  %% 
+  % specifying a coordinates (xb,yb) of boundary points on airfoil surface. the
   % last point coincides with the first
   load naca2308_111p.txt;
   xy = naca2308_111p;
