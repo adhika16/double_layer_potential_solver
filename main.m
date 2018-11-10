@@ -14,5 +14,5 @@ fprintf('\t \t \t \t version 1.0\n\n')
 [x,y,s,theta,sine,cosine,rhs] = geom_parameter(xb,yb,m,alpha);
 [gama,cp] = calculate_gamma(xb,yb,x,y,s,theta,sine,cosine,rhs,m,mp1,alpha);
 [xt,yt,thetat,nPoint] = create_domain();
-[vx,vy] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thetat,sine,cosine,s,gama,alpha,Uinf);
+[vy,vx] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thetat,sine,cosine,s,gama,alpha,Uinf);
 fprintf('... done!\n');

@@ -28,15 +28,15 @@ function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thet
       tempt = tempt + tempt1*gama(j) + tempt2*gama(j+1);
       tempn = tempn + tempn1*gama(j) + tempn2*gama(j+1);
     end
-    Vt_gama(i) = tempt;
-    Vn_gama(i) = tempn;
-    Vt_inf(i) =  cos(thetat(i)-alpha);
-    Vn_inf(i) = -sin(thetat(i)-alpha);
-    Vn(i) = Uinf*(Vn_inf(i)+Vn_gama(i));
-    Vt(i) = Uinf*(Vt_inf(i)+Vt_gama(i));
+    Vt_gama(i) = tempt; % tangential velocity induced by vortex sheet
+    Vn_gama(i) = tempn; % normal velocity indoced by vortex sheet
+    Vt_inf(i) =  cos(thetat(i)-alpha); % tangential velocity induced by freestrem
+    Vn_inf(i) = -sin(thetat(i)-alpha); % normal velocity induced by freestrem
+    Vn(i) = Uinf*(Vn_inf(i)+Vn_gama(i)); % normal velocity
+    Vt(i) = Uinf*(Vt_inf(i)+Vt_gama(i)); % tangential velocity
   end
   % scatter3(xt,yt,Vn,1); hold on; plot(x,y);
-  quiver(xt,yt,Vt,Vn,Uinf*0.1); hold on; plot(x,y);
+  quiver(xt,yt,Vt,Vn); hold on; plot(x,y);
   set(get(gca, 'XLabel'), 'String', 'x');
   set(get(gca, 'YLabel'), 'String', 'y');
   set(get(gca, 'Title'), 'String', 'velocity vector plot');
