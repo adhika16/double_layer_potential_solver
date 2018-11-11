@@ -40,4 +40,8 @@ function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thet
   set(get(gca, 'XLabel'), 'String', 'x');
   set(get(gca, 'YLabel'), 'String', 'y');
   set(get(gca, 'Title'), 'String', 'velocity vector plot');
+
+  % starty = -1.0:0.1:1.0;
+  % startx = zeros(size(starty));
+  % streamline(xt,yt,Vt,Vn,startx,starty)
 end

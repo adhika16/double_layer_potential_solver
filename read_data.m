@@ -12,7 +12,7 @@ function [xb,yb,m,mp1,Uinf,alpha] = read_data()
   % calculating total panel point 
   m   = length(xb0)-1; % total point with TE & LE is treated as 1 point 
   mp1 = m+1; % total point including TE and LE
-  % reverse point index, so the indexing is started from TE and goes on through lower surface first 
+  % reverse point index, so the indexing is began from TE and goes on clockwise orientation
   for i=1:mp1
       xb(i)=xb0(mp1+1-i);
       yb(i)=yb0(mp1+1-i);
@@ -25,11 +25,10 @@ function [xb,yb,m,mp1,Uinf,alpha] = read_data()
     Uinf = input('incorrect input, freestream velocity (1-100m/s) : ');
   end
   % setting up the angle of attack(AoA) in [radian]
-  alphaDeg = input('angle of attack (-5 < AoA < 10deg) : ');
+  alphaDeg = input('angle of attack (-5 < AoA < 10deg) : '); % AoA in [degree]
   while (alphaDeg>10) || (alphaDeg<-4)
-    alphaDeg = input('incorrect input, angle of attack (-5 < AoA < 10deg) : ');
+    alphaDeg = input('incorrect input, angle of attack (-5 < AoA < 10deg) : '); % AoA in [degree]
   end
-  % alphaDeg = 4; % AoA in [degree]
   alpha = alphaDeg*pi/180; % AoA in [radian]
 
 end

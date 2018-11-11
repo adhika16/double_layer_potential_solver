@@ -1,14 +1,13 @@
 function [xt,yt,thetat,nPoint] = create_domain()
-  %% calculating potential function in the domain
   % creating grid points
-  x_mindom = -1.0d0;
-  x_maxdom =  2.0d0;
-  y_mindom = -1.0d0;
-  y_maxdom =  1.0d0;
-  nx = 50;
-  ny = 50;
-  dx = (x_maxdom-x_mindom)/nx;
-  dy = (y_maxdom-y_mindom)/ny;
+  x_mindom = -1.0d0; % x minimum
+  x_maxdom =  2.0d0; % x maximum 
+  y_mindom = -1.0d0; % y minimum 
+  y_maxdom =  1.0d0; % y maximum
+  nx = 50; % grid points in x direction
+  ny = 50; % grid points in y direction
+  dx = (x_maxdom-x_mindom)/nx; % grid spacing in x direction
+  dy = (y_maxdom-y_mindom)/ny; % grid spacing in y direction
 
   % creating the domain
   nPoint=0;

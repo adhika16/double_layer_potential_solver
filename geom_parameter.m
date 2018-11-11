@@ -10,27 +10,6 @@ function [x,y,s,theta,sine,cosine,rhs] = geom_parameter(xb,yb,m,alpha)
     sine(i)   = sin(theta(i)); % sin(tetha)
     cosine(i) = cos(theta(i)); % cos(tetha)
     rhs(i)    = sin(theta(i)-alpha);
-    % thetaN(i) = pi/2 + theta(i); % the orientation of unit normal angle of the i-th panel measured from the x axis
-    % betha(i)  = thetaN(i) - alpha; % the orientation angle between i-th panel's normal and freestream direction
-    % g0(i)     = 0.0d0;
-    % rhs1(i)   = g0(i) + Uinf*cos(betha(i));
   end
 
-  % for i = 1:m
-  %   for j = 1:m
-  %     if (j==i)
-  %       matA(i,j)=-0.5d0*s(i);
-  %     else
-  %       xi = x(i);
-  %       yi = y(i);
-  %       xj = x(j);
-  %       yj = y(j);
-  %       betha_i = betha(i);
-  %       matA(i,j) = -1*dPhi_dn(xi,yi,xj,yj,betha_i)*s(j);
-  %     end
-  %   end
-  % end
-  % hx = matA\rhs1';
-  % scatter3(x,y,hx,1);  
 end
-
