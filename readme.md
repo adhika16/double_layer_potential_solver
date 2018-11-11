@@ -6,3 +6,6 @@
   - tyoe 'main' without quotation mark in the Matlab terminal 
   - input freestream velocity in m/s
   - input angle of attack in degree
+
+3. Github link
+https://github.com/adhika16/double_layer_potential_solver.git
