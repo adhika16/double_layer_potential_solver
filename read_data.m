@@ -19,12 +19,12 @@ function [xb,yb,m,mp1,Uinf,alpha] = read_data()
   end
 
   fprintf('input parameter:\n');
-  % setting freestream velocity
+  % setting freestream velocity through user input by a control condition 
   Uinf = input('freestream velocity (1-100m/s) : ');
   while (Uinf<=0) || (Uinf>100)
     Uinf = input('incorrect input, freestream velocity (1-100m/s) : ');
   end
-  % setting up the angle of attack(AoA) in [radian]
+  % setting up the angle of attack(AoA) in [radian] through user input by a control condition 
   alphaDeg = input('angle of attack (-5 < AoA < 10deg) : '); % AoA in [degree]
   while (alphaDeg>10) || (alphaDeg<-4)
     alphaDeg = input('incorrect input, angle of attack (-5 < AoA < 10deg) : '); % AoA in [degree]
