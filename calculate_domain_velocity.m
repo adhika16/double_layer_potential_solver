@@ -1,5 +1,5 @@
 function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thetat,sine,cosine,s,gama,alpha,Uinf)
-  %% this function is to calculate velocity in the domain. this function contains two steps
+  %% this function is to calculate velocity in the domain. this function consists of two steps
   % 1st step : calculating potential function in the domain using double layer potential relation
   % 2nd step : calculating velocity in the domain from corresponding potential function 
   %% 
