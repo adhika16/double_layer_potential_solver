@@ -1,6 +1,12 @@
 function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thetat,sine,cosine,s,gama,alpha,Uinf)
+  %% this function is to calculate velocity in the domain. this function contains two steps
+  % 1st step : calculating potential function in the domain using double layer potential relation
+  % 2nd step : calculating velocity in the domain from corresponding potential function 
+  %% 
+  
   % calculating potential function in order to calculate velocity in the domain
   for i = 1:nPoint
+    % 1st step
     tempn = 0.0d0;
     tempt = 0.0d0;
     for j = 1:m
@@ -20,14 +26,11 @@ function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thet
       tempn2 = tempn2 + d+0.5*q*f/s(j) - (a*c+d*e)*g/s(j);
       tempn1 = tempn1 + 0.5*d*f +c*g -tempn2;
       tempt2 = tempt2 + c+0.5*p*f/s(j) + (a*d-c*e)*g/s(j);
-      tempt1 = tempt1 + 0.5*c*f-d*g-tempt2;    
-      % cn2(i,j) = d+0.5*q*f/s(j) - (a*c+d*e)*g/s(j);
-      % cn1(i,j) = 0.5*d*f +c*g -cn2(i,j);
-      % ct2(i,j) = c+0.5*p*f/s(j) + (a*d-c*e)*g/s(j);
-      % ct1(i,j) = 0.5*c*f-d*g-ct2(i,j);
+      tempt1 = tempt1 + 0.5*c*f-d*g-tempt2;
       tempt = tempt + tempt1*gama(j) + tempt2*gama(j+1);
       tempn = tempn + tempn1*gama(j) + tempn2*gama(j+1);
     end
+    % 2nd step
     Vt_gama(i) = tempt; % tangential velocity induced by vortex sheet
     Vn_gama(i) = tempn; % normal velocity indoced by vortex sheet
     Vt_inf(i) =  cos(thetat(i)-alpha); % tangential velocity induced by freestrem
@@ -35,7 +38,7 @@ function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thet
     Vn(i) = Uinf*(Vn_inf(i)+Vn_gama(i)); % normal velocity
     Vt(i) = Uinf*(Vt_inf(i)+Vt_gama(i)); % tangential velocity
   end
-  % scatter3(xt,yt,Vn,1); hold on; plot(x,y);
+  % displaying velocity vectors
   quiver(xt,yt,Vt,Vn); hold on; plot(x,y);
   set(get(gca, 'XLabel'), 'String', 'x');
   set(get(gca, 'YLabel'), 'String', 'y');
