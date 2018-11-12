@@ -12,7 +12,7 @@ function [xb,yb,m,mp1,Uinf,alpha] = read_data()
   % calculating total panel point 
   m   = length(xb0)-1; % total point with TE & LE is treated as 1 point 
   mp1 = m+1; % total point including TE and LE
-  % reverse point index, so the indexing is began from TE and goes on clockwise orientation
+  % reverse point index, so the indexing is began from TE and numbered from the lower surface of airfoil
   for i=1:mp1
       xb(i)=xb0(mp1+1-i);
       yb(i)=yb0(mp1+1-i);
