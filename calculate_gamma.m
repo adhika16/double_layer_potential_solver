@@ -54,7 +54,7 @@ function [gama,cp] = calculate_gamma(xb,yb,x,y,s,theta,sine,cosine,rhs,m,mp1,alp
     v(i) = cos(theta(i)-alpha);
     for j=1:mp1
         v(i) = v(i) +at(i,j)*gama(j) ;
-        cp(i) = -(1- v(i)^2);
+        cp(i) = -(1- v(i)^2); % to flip the plot. thus, the actual value for Cp is the negative of this value. 
     end
   end
   % this subroutine solves a set of algebraic equations c(i,j)*x(j) = a(i),
