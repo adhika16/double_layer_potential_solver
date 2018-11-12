@@ -39,7 +39,7 @@ function [Vn,Vt] = calculate_domain_velocity(nPoint,m,x,y,xt,yt,xb,yb,theta,thet
     Vt(i) = Uinf*(Vt_inf(i)+Vt_gama(i)); % tangential velocity
   end
   % displaying velocity vectors
-  quiver(xt,yt,Vt,Vn); hold on; plot(x,y);
+  figure; quiver(xt,yt,Vt,Vn); hold on; plot(x,y);
   set(get(gca, 'XLabel'), 'String', 'x');
   set(get(gca, 'YLabel'), 'String', 'y');
   set(get(gca, 'Title'), 'String', 'velocity vector plot');
